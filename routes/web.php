@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardAController;
 use App\Http\Controllers\Admin\PenggunaAController;
 
-// Route::get('/', function () {
-//     return view('admin/mutasinadmin');
-// });
+Route::get('/', function () {
+    return view('auth/login');
+});
 
 // Dashboard
 Route::get('/dashboard', [DashboardAController::class, 'index'])->name('dashboard');

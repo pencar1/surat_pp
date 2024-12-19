@@ -45,6 +45,7 @@
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" placeholder="Masukkan email" tabindex="1" required autofocus>
+                    <div class="invalid-feedback">Harap masukkan email yang valid.</div>
                   </div>
 
                   <div class="form-group">
@@ -52,6 +53,7 @@
                     	<label for="password" class="control-label">Password</label>
                     </div>
                     <input id="password" type="password" class="form-control" name="password" placeholder="Masukkan password"  tabindex="2" required>
+                    <div class="invalid-feedback">Password tidak boleh kosong.</div>
                   </div>
 
                   <div class="form-group">

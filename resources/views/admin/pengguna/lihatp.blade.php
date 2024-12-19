@@ -35,6 +35,12 @@
                   <input type="email" id="email" class="form-control" placeholder="Masukkan alamat email" required>
                   <div class="invalid-feedback">Harap masukkan email yang valid.</div>
                 </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Masukkan password" required>
+                    <div class="invalid-feedback">Password tidak boleh kosong.</div>
+                  </div>
                 <!-- Alamat -->
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
