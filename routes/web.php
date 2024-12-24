@@ -12,9 +12,18 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardAController::class, 'index'])->name('dashboard');
 
 // Pengguna
-Route::get('/pengguna', function () {
-    return view('admin/pengguna');
-})->name('pengguna');
+Route::get('/pengguna', [PenggunaAController::class, 'index'])->name('pengguna');
+
+Route::get('/create', [PenggunaAController::class, 'create'])->name('pengguna.create');
+
+Route::post('/store', [PenggunaAController::class, 'store'])->name('pengguna.store');
+
+Route::get('/pengguna/{id}/edit', [PenggunaAController::class, 'edit'])->name('pengguna.edit');
+
+Route::put('/pengguna/{id}', [PenggunaAController::class, 'update'])->name('pengguna.update');
+
+Route::delete('/pengguna/{id}', [PenggunaAController::class, 'destroy'])->name('pengguna.delete');
+
 
 // Mutasi N
 Route::get('/mutasi', function () {
@@ -26,4 +35,3 @@ Route::get('/rubah-tarif', function () {
     return view('admin/rubahtarifadmin');
 })->name('rubah-tarif');
 
-Route::get('/tambahpengguna', [PenggunaAController::class, 'tambahpengguna'])->name('pengguna.tambah');

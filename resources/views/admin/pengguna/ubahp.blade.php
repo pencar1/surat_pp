@@ -1,7 +1,6 @@
 @extends('layout.layoutadmin')
 
 @section('content')
-
 <!-- Main Content -->
 <div class="main-content">
   <section class="section">
@@ -18,57 +17,76 @@
       <div class="row justify-content-center">
         <div class="col-12">
           <div class="card">
-            <form class="needs-validation" novalidate="">
-              <div class="card-header">
-                <h4>Data Pengguna</h4>
-              </div>
-              <div class="card-body">
-                <!-- Nama -->
-                <div class="form-group">
-                  <label for="nama">Nama</label>
-                  <input type="text" id="nama" class="form-control" placeholder="Masukkan nama lengkap" required>
-                  <div class="invalid-feedback">Nama tidak boleh kosong.</div>
+            <form action="{{ route('pengguna.update', ['id' => $data->idpengguna]) }}" method="POST" class="needs-validation" novalidate>
+                @csrf
+                @method('PUT')
+                <div class="card-header">
+                  <h4>Data Pengguna</h4>
                 </div>
-                <!-- Email -->
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Masukkan alamat email" required>
-                  <div class="invalid-feedback">Harap masukkan email yang valid.</div>
+                <div class="card-body">
+                    <!-- Nama -->
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="nama" class="form-control" value="{{ old('nama', $data->nama) }}" required>
+                        <div class="invalid-feedback">Nama tidak boleh kosong.</div>
+                        @error('nama')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" value="{{ old('email', $data->email) }}" required>
+                        <div class="invalid-feedback">Harap masukkan email yang valid.</div>
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Kosongkan jika tidak ingin mengubah">
+                        @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <!-- Alamat -->
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <input type="text" id="alamat" name="alamat" class="form-control" value="{{ old('alamat', $data->alamat) }}" required>
+                        <div class="invalid-feedback">Alamat tidak boleh kosong.</div>
+                        @error('alamat')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <!-- No HP -->
+                    <div class="form-group">
+                        <label for="nohp">No HP</label>
+                        <input type="text" id="nohp" name="nohp" class="form-control" value="{{ old('nohp', $data->nohp) }}" required>
+                        <div class="invalid-feedback">Harap masukkan nomor HP yang benar.</div>
+                        @error('nohp')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <!-- Status -->
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" name="status" class="form-control" required>
+                            <option value="" disabled>Pilih Status</option>
+                            <option value="admin" {{ old('status', $data->status) == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="karyawan" {{ old('status', $data->status) == 'karyawan' ? 'selected' : '' }}>Karyawan</option>
+                        </select>
+                        <div class="invalid-feedback">Harap pilih status pengguna.</div>
+                        @error('status')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="password">password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Masukkan password" required>
-                    <div class="invalid-feedback">Password tidak boleh kosong.</div>
-                  </div>
-                <!-- Alamat -->
-                <div class="form-group">
-                  <label for="alamat">Alamat</label>
-                  <input type="text" id="alamat" class="form-control" placeholder="Masukkan alamat lengkap" required>
-                  <div class="invalid-feedback">Alamat tidak boleh kosong.</div>
+                <!-- Footer -->
+                <div class="card-footer text-right">
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                    <button type="button" class="btn btn-danger" onclick="window.location.href='{{ route('pengguna') }}'">Batal</button>
                 </div>
-                <!-- No HP -->
-                <div class="form-group">
-                  <label for="no_hp">No HP</label>
-                  <input type="text" id="no_hp" class="form-control" placeholder="Masukkan nomor HP" pattern="\d{10,13}" required>
-                  <div class="invalid-feedback">Harap masukkan nomor HP dengan benar (10-13 digit).</div>
-                </div>
-                <!-- Status -->
-                <div class="form-group">
-                  <label for="status">Status</label>
-                  <select id="status" class="form-control" required>
-                    <option value="" disabled selected>Pilih Status</option>
-                    <option value="admin">Admin</option>
-                    <option value="karyawan">Karyawan</option>
-                  </select>
-                  <div class="invalid-feedback">Harap pilih status pengguna.</div>
-                </div>
-              </div>
-              <!-- Footer -->
-              <div class="card-footer text-right">
-                <button type="submit" class="btn btn-success">Simpan</button>
-                <button type="reset" class="btn btn-danger">Batal</button>
-              </div>
             </form>
           </div>
         </div>
@@ -76,5 +94,4 @@
     </div>
   </section>
 </div>
-
 @endsection

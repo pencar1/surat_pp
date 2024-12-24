@@ -20,7 +20,7 @@
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Data Pengguna</h4>
                         <div class="buttons">
-                            <a href="{{ route('pengguna.tambah') }}" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+                            <a href="{{ route('pengguna.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                   </div>
                   <div class="card-body">
@@ -32,88 +32,38 @@
                               No
                             </th>
                             <th>Nama</th>
-                            <th>Email</th>
                             <th>Alamat</th>
+                            <th>Email</th>
                             <th>No Hp</th>
                             <th>Status</th>
                             <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
+                            @foreach ($data as $d)
                           <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $d->nama }}</td>
+                            <td>{{ $d->alamat }}</td>
+                            <td>{{ $d->email }}</td>
+                            <td>{{ $d->nohp }}</td>
+                            <td>{{ $d->status }}</td>
                             <td>
-                              1
+                                <div class="form-button-action">
+                                    <a href="{{ route('pengguna.edit', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Ubah Pengguna" class="btn btn-link btn-success">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('pengguna.delete',['id' => $d->idpengguna])}}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" data-toggle="tooltip" title="Hapus User" class="btn btn-link btn-danger deleteButton">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
-                            <td>Create a mobile app</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                                <div class="progress-bar bg-success" data-width="100%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-5.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                            </td>
-                            <td>2018-01-20</td>
-                            <td><div class="badge badge-success">Completed</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
                           </tr>
-                          <tr>
-                            <td>
-                              2
-                            </td>
-                            <td>Redesign homepage</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="0%">
-                                <div class="progress-bar" data-width="0"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-1.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-3.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-4.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
-                            </td>
-                            <td>2018-04-10</td>
-                            <td><div class="badge badge-info">Todo</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              3
-                            </td>
-                            <td>Backup database</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="70%">
-                                <div class="progress-bar bg-warning" data-width="70%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-1.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-2.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
-                            </td>
-                            <td>2018-01-29</td>
-                            <td><div class="badge badge-warning">In Progress</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              4
-                            </td>
-                            <td>Input data</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                                <div class="progress-bar bg-success" data-width="100%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-2.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-5.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-4.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-1.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
-                            </td>
-                            <td>2018-01-16</td>
-                            <td><div class="badge badge-success">Completed</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
