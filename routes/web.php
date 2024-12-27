@@ -13,15 +13,11 @@ Route::get('/dashboard', [DashboardAController::class, 'index'])->name('dashboar
 
 // Pengguna
 Route::get('/pengguna', [PenggunaAController::class, 'index'])->name('pengguna');
-
+Route::get('/pengguna/{id}', [PenggunaAController::class, 'show'])->name('pengguna.show');
 Route::get('/create', [PenggunaAController::class, 'create'])->name('pengguna.create');
-
 Route::post('/store', [PenggunaAController::class, 'store'])->name('pengguna.store');
-
 Route::get('/pengguna/{id}/edit', [PenggunaAController::class, 'edit'])->name('pengguna.edit');
-
 Route::put('/pengguna/{id}', [PenggunaAController::class, 'update'])->name('pengguna.update');
-
 Route::delete('/pengguna/{id}', [PenggunaAController::class, 'destroy'])->name('pengguna.delete');
 
 

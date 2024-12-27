@@ -18,6 +18,12 @@ class PenggunaAController extends Controller
         return view('admin.pengguna', compact('data'));
     }
 
+    public function show($id)
+    {
+        $data = Pengguna::findOrFail($id);
+        return view('admin.pengguna.lihatp', compact('data'));
+    }
+
     public function create()
     {
         return view('admin.pengguna.tambahp');
@@ -134,13 +140,20 @@ class PenggunaAController extends Controller
         return redirect()->route('pengguna')->with('success', 'Data berhasil diperbarui.');
     }
 
-    public function destroy(Request $request,$id){
+    public function destroy(Request $request, $id)
+    {
         $data = Pengguna::find($id);
 
-        if($data){
-            $data->delete();
+        // Cek apakah pengguna yang ingin dihapus adalah admin
+        if ($data && $data->status == 'admin') {
+            return redirect()->route('pengguna')->with('error', 'Admin tidak dapat dihapus.');
         }
 
-        return redirect()->route('pengguna')->with('success', 'Data berhasil dihapus.');
+        if ($data) {
+            $data->delete();
+            return redirect()->route('pengguna')->with('success', 'Data berhasil dihapus.');
+        }
+
+        return redirect()->route('pengguna')->with('error', 'Data tidak ditemukan.');
     }
 }

@@ -50,13 +50,16 @@
                             <td>{{ $d->status }}</td>
                             <td>
                                 <div class="form-button-action">
+                                    <a href="{{ route('pengguna.show', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Lihat Pengguna" class="btn btn-link btn-info">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
                                     <a href="{{ route('pengguna.edit', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Ubah Pengguna" class="btn btn-link btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('pengguna.delete',['id' => $d->idpengguna])}}" method="POST" class="d-inline">
+                                    <form action="{{ route('pengguna.delete', ['id' => $d->idpengguna]) }}" method="POST" class="d-inline" id="deleteForm-{{ $d->idpengguna }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" data-toggle="tooltip" title="Hapus User" class="btn btn-link btn-danger deleteButton">
+                                        <button type="button" data-toggle="tooltip" title="Hapus User" class="btn btn-link btn-danger deleteButton" id="swal-delete-{{ $d->idpengguna }}">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </form>
