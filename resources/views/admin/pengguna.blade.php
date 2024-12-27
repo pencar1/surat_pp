@@ -16,6 +16,19 @@
           <div class="section-body">
             <div class="row">
               <div class="col-12">
+                {{-- Cek apakah ada pesan sukses --}}
+                @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+                @endif
+
+                {{-- Cek apakah ada pesan error --}}
+                @if (session('error'))
+                <div class="alert alert-warning" role="alert">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Data Pengguna</h4>
