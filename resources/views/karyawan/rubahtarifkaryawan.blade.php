@@ -1,4 +1,4 @@
-@extends('layout.layoutadmin')
+@extends('layout.layoutkaryawan')
 
 @section('content')
 
@@ -8,7 +8,7 @@
           <div class="section-header">
             <h1>Halaman Rubah Tarif</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+              <div class="breadcrumb-item active"><a href="{{ route('karyawan.dashboard') }}">Dashboard</a></div>
               <div class="breadcrumb-item">Rubah Tarif</div>
             </div>
           </div>

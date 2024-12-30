@@ -8,8 +8,8 @@
     <div class="section-header">
       <h1>Detail Pengguna</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="{{ route('pengguna') }}">Pengguna</a></div>
+        <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{ route('admin.pengguna') }}">Pengguna</a></div>
         <div class="breadcrumb-item">Detail Pengguna</div>
       </div>
     </div>
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="card-footer text-right">
-              <a href="{{ route('pengguna') }}" class="btn btn-danger">Kembali</a>
+              <a href="{{ route('admin.pengguna') }}" class="btn btn-danger">Kembali</a>
             </div>
           </div>
         </div>

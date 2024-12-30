@@ -8,7 +8,7 @@
           <div class="section-header">
             <h1>Halaman Pengguna</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
+              <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
               <div class="breadcrumb-item">Pengguna</div>
             </div>
           </div>
@@ -33,7 +33,7 @@
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Data Pengguna</h4>
                         <div class="buttons">
-                            <a href="{{ route('pengguna.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+                            <a href="{{ route('admin.pengguna.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                   </div>
                   <div class="card-body">
@@ -63,13 +63,13 @@
                             <td>{{ $d->status }}</td>
                             <td>
                                 <div class="form-button-action">
-                                    <a href="{{ route('pengguna.show', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Lihat Pengguna" class="btn btn-link btn-info">
+                                    <a href="{{ route('admin.pengguna.show', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Lihat Pengguna" class="btn btn-link btn-info">
                                         <i class="fa fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('pengguna.edit', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Ubah Pengguna" class="btn btn-link btn-success">
+                                    <a href="{{ route('admin.pengguna.edit', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Ubah Pengguna" class="btn btn-link btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('pengguna.delete', ['id' => $d->idpengguna]) }}" method="POST" class="d-inline" id="deleteForm-{{ $d->idpengguna }}">
+                                    <form action="{{ route('admin.pengguna.delete', ['id' => $d->idpengguna]) }}" method="POST" class="d-inline" id="deleteForm-{{ $d->idpengguna }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" data-toggle="tooltip" title="Hapus User" class="btn btn-link btn-danger deleteButton" id="swal-delete-{{ $d->idpengguna }}">

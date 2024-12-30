@@ -1,4 +1,4 @@
-@include('layout.headadmin')
+@include('layout.head')
 @include('layout.navadmin')
 @include('layout.sideadmin')
-@include('layout.footeradmin')
+@include('layout.footer')

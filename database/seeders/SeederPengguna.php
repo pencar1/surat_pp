@@ -19,7 +19,7 @@ class SeederPengguna extends Seeder
             'alamat'        => 'Banjarbaru',
             'email'         => 'admin123@gmail.com',
             'nohp'          => '08000000000',
-            'password'      => Hash::make('admi@n123'),
+            'password'      => Hash::make('admin@123'),
             'status'        => 'admin',
         ]);
     }

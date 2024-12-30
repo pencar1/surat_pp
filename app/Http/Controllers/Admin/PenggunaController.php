@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-class PenggunaAController extends Controller
+class PenggunaController extends Controller
 {
     public function index()
     {
@@ -83,7 +83,7 @@ class PenggunaAController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return redirect()->route('pengguna')->with('success', 'Data berhasil ditambahkan.');
+        return redirect()->route('admin.pengguna')->with('success', 'Data berhasil ditambahkan.');
     }
 
     public function edit(Request $request,$id)
@@ -137,7 +137,7 @@ class PenggunaAController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return redirect()->route('pengguna')->with('success', 'Data berhasil diperbarui.');
+        return redirect()->route('admin.pengguna')->with('success', 'Data berhasil diperbarui.');
     }
 
     public function destroy(Request $request, $id)
@@ -146,14 +146,14 @@ class PenggunaAController extends Controller
 
         // Cek apakah pengguna yang ingin dihapus adalah admin
         if ($data && $data->status == 'admin') {
-            return redirect()->route('pengguna')->with('error', 'Admin tidak dapat dihapus.');
+            return redirect()->route('admin.pengguna')->with('error', 'Admin tidak dapat dihapus.');
         }
 
         if ($data) {
             $data->delete();
-            return redirect()->route('pengguna')->with('success', 'Data berhasil dihapus.');
+            return redirect()->route('admin.pengguna')->with('success', 'Data berhasil dihapus.');
         }
 
-        return redirect()->route('pengguna')->with('error', 'Data tidak ditemukan.');
+        return redirect()->route('admin.pengguna')->with('error', 'Data tidak ditemukan.');
     }
 }

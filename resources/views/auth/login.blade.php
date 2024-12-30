@@ -41,7 +41,8 @@
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+                <form action="{{ route ('login-proses') }}"  method="POST" class="needs-validation" novalidate="">
+                    @csrf
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" placeholder="Masukkan email" tabindex="1" required autofocus>
@@ -104,5 +105,15 @@
   <!-- Template JS File -->
   <script src="{{ asset ('stisla/dist/assets/js/scripts.js')}}"></script>
   <script src="{{ asset ('stisla/dist/assets/js/custom.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if($message = Session::get('success'))
+    <script>Swal.fire('{{ $message }}');</script>
+    @endif
+
+    @if($message = Session::get('failed'))
+    <script>Swal.fire('{{ $message }}');</script>
+    @endif
+
 </body>
 </html>

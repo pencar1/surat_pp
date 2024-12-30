@@ -8,8 +8,8 @@
     <div class="section-header">
       <h1>Form Tambah Pengguna</h1>
       <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
-        <div class="breadcrumb-item"><a href="{{ route('pengguna') }}">Pengguna</a></div>
+        <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="{{ route('admin.pengguna') }}">Pengguna</a></div>
         <div class="breadcrumb-item">Form Tambah Pengguna</div>
       </div>
     </div>
@@ -18,7 +18,7 @@
       <div class="row justify-content-center">
         <div class="col-12">
           <div class="card">
-            <form action="{{ route('pengguna.store') }}" method="POST" class="needs-validation">
+            <form action="{{ route('admin.pengguna.store') }}" method="POST" class="needs-validation">
               @csrf
               <div class="card-header">
                 <h4>Data Pengguna</h4>
@@ -86,7 +86,7 @@
               </div>
               <div class="card-footer text-right">
                 <button type="button" class="btn btn-success saveButton">Simpan</button>
-                <button type="reset" class="btn btn-danger" onclick="window.location.href='{{ route('pengguna') }}'">Batal</button>
+                <button type="reset" class="btn btn-danger" onclick="window.location.href='{{ route('admin.pengguna') }}'">Batal</button>
               </div>
             </form>
           </div>

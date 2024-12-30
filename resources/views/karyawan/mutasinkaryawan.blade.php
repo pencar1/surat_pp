@@ -1,4 +1,4 @@
-@extends('layout.layoutadmin')
+@extends('layout.layoutkaryawan')
 
 @section('content')
 
@@ -6,10 +6,10 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Halaman Rubah Tarif</h1>
+            <h1>Halaman Mutasi N</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
-              <div class="breadcrumb-item">Rubah Tarif</div>
+              <div class="breadcrumb-item active"><a href="{{ route('karyawan.dashboard') }}">Dashboard</a></div>
+              <div class="breadcrumb-item">Mutasi N</div>
             </div>
           </div>
 
@@ -18,7 +18,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Data Rubah Tarif</h4>
+                    <h4>Data Mutasi N</h4>
                         <div class="buttons">
                             <a href="#" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
@@ -29,14 +29,14 @@
                         <thead>
                           <tr>
                             <th class="text-center">
-                              #
+                              No
                             </th>
-                            <th>Task Name</th>
-                            <th>Progress</th>
-                            <th>Members</th>
-                            <th>Due Date</th>
+                            <th>IDPEL</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Alamat</th>
+                            <th>Tarif</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
