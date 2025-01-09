@@ -11,4 +11,14 @@ class MutasiNController extends Controller
     {
         return view('admin.mutasinadmin');
     }
+
+    public function create()
+    {
+        return view('admin.mutasi.tambahm');
+    }
+
+    public function store(Request $request)
+    {
+        
+    }
 }

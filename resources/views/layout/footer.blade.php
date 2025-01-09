@@ -144,5 +144,49 @@
     });
 </script>
 
+<script>
+    function formatNumber(input) {
+        // Hapus semua karakter selain angka
+        let value = input.value.replace(/[^0-9]/g, '');
+
+        // Tambahkan format angka dengan koma
+        input.value = new Intl.NumberFormat('en-US').format(value);
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bulanAwal = document.getElementById('bulanawal');
+        const bulanAkhir = document.getElementById('bulanakhir');
+
+        bulanAwal.addEventListener('change', function () {
+            const selectedValue = bulanAwal.value.split('-'); // Format: MM-YYYY
+            const startMonth = parseInt(selectedValue[0]); // Bulan awal sebagai angka (1-12)
+
+            // Aktifkan semua opsi bulan akhir terlebih dahulu
+            Array.from(bulanAkhir.options).forEach(option => {
+                option.disabled = false;
+            });
+
+            // Nonaktifkan opsi bulan akhir yang kurang dari atau sama dengan bulan awal
+            Array.from(bulanAkhir.options).forEach(option => {
+                if (option.value) {
+                    const optionValue = option.value.split('-'); // Format: MM-YYYY
+                    const optionMonth = parseInt(optionValue[0]); // Bulan akhir sebagai angka (1-12)
+
+                    if (optionMonth <= startMonth) {
+                        option.disabled = true;
+                    }
+                }
+            });
+
+            // Reset pilihan bulan akhir ke default jika opsi yang dipilih tidak valid
+            if (bulanAkhir.value && bulanAkhir.options[bulanAkhir.selectedIndex].disabled) {
+                bulanAkhir.value = '';
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
