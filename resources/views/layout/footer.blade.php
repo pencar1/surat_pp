@@ -145,12 +145,61 @@
 </script>
 
 <script>
+    // Fungsi untuk menghapus format ribuan (titik) dan hanya menyimpan angka
+    function removeThousandSeparator(input) {
+        return input.replace(/[^0-9]/g, ''); // Hanya menghapus karakter non-numerik
+    }
+
+    // Fungsi untuk memformat angka dengan titik ribuan
+    function formatNumber3(input) {
+        let value = removeThousandSeparator(input.value);
+
+        if (!value) {
+            input.value = '';
+            return;
+        }
+
+        input.value = parseInt(value, 10).toLocaleString('id-ID');
+    }
+
+    // Fungsi untuk menghitung total
+    function calculateTotal3() {
+        const tag = removeThousandSeparator(document.getElementById('rptag3lembar').value) || 0;
+        const bk = removeThousandSeparator(document.getElementById('rpbk3lembar').value) || 0;
+
+        const total = parseInt(tag) + parseInt(bk);
+
+        document.getElementById('rptot3lembar').value = total.toLocaleString('id-ID');
+    }
+</script>
+
+<script>
+    // Fungsi untuk memformat angka dengan titik ribuan
     function formatNumber(input) {
-        // Hapus semua karakter selain angka
+        // Ambil nilai input, hapus karakter selain angka
         let value = input.value.replace(/[^0-9]/g, '');
 
-        // Tambahkan format angka dengan koma
-        input.value = new Intl.NumberFormat('en-US').format(value);
+        // Jika kosong, langsung keluar
+        if (!value) {
+            input.value = '';
+            return;
+        }
+
+        // Format angka dengan titik ribuan
+        input.value = parseInt(value, 10).toLocaleString('id-ID');
+    }
+
+    // Fungsi untuk menghitung total
+    function calculateTotal() {
+        // Ambil nilai dari input RP TAG dan RP BK, lalu hapus titik ribuan
+        const tag = parseInt(document.getElementById('rptag1lembar').value.replace(/[^0-9]/g, '')) || 0;
+        const bk = parseInt(document.getElementById('rpbk1lembar').value.replace(/[^0-9]/g, '')) || 0;
+
+        // Hitung total
+        const total = tag + bk;
+
+        // Format hasil total dengan titik ribuan
+        document.getElementById('rptot1lembar').value = total.toLocaleString('id-ID');
     }
 </script>
 

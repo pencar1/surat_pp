@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>PLN ULP BANJARBARU</title>
-  <link rel="icon" href="{{ asset('images/logo/logo_PLN.png') }}" type="image/x-icon">
+  <link rel="icon" href="{{ asset('images/logo/Logo_PLN_B.png') }}" type="image/x-icon">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset ('stisla/dist/assets/modules/bootstrap/css/bootstrap.min.css')}}">

@@ -64,16 +64,16 @@
                             <td>
                                 <div class="form-button-action">
                                     <a href="{{ route('admin.pengguna.show', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Lihat Pengguna" class="btn btn-link btn-info">
-                                        <i class="fa fa-eye"></i>
+                                        <i class="fa fa-eye text-white"></i>
                                     </a>
                                     <a href="{{ route('admin.pengguna.edit', ['id' => $d->idpengguna]) }}" data-toggle="tooltip" title="Ubah Pengguna" class="btn btn-link btn-success">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-edit text-white"></i>
                                     </a>
                                     <form action="{{ route('admin.pengguna.delete', ['id' => $d->idpengguna]) }}" method="POST" class="d-inline" id="deleteForm-{{ $d->idpengguna }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" data-toggle="tooltip" title="Hapus User" class="btn btn-link btn-danger deleteButton" id="swal-delete-{{ $d->idpengguna }}">
-                                            <i class="fa fa-times"></i>
+                                        <button type="button" data-toggle="tooltip" title="Hapus Pengguna" class="btn btn-link btn-danger deleteButton" id="swal-delete-{{ $d->idpengguna }}">
+                                            <i class="fa fa-times text-white"></i>
                                         </button>
                                     </form>
                                 </div>

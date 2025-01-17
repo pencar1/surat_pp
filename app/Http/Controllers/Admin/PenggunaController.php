@@ -21,6 +21,7 @@ class PenggunaController extends Controller
     public function show($id)
     {
         $data = Pengguna::findOrFail($id);
+        
         return view('admin.pengguna.lihatp', compact('data'));
     }
 

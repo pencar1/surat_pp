@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', RoleCheck::class . '
     Route::get('/mutasi/edit{id}', [AdminMutasiNController::class, 'edit'])->name('mutasi.edit');
     Route::put('/mutasi/update{id}', [AdminMutasiNController::class, 'update'])->name('mutasi.update');
     Route::delete('/mutasi/delete{id}', [AdminMutasiNController::class, 'destroy'])->name('mutasi.delete');
+    Route::post('/mutasi/print/{id}', [AdminMutasiNController::class, 'print'])->name('mutasi.print');
+
 
     // Rubah Tarif
     Route::get('/rubah-tarif', function () {

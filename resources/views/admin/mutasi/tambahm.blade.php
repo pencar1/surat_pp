@@ -18,7 +18,7 @@
       <div class="row justify-content-center">
         <div class="col-12">
           <div class="card">
-            <form action="{{ route('admin.mutasi.store') }}" method="POST" class="needs-validation">
+            <form action="{{ route('admin.mutasi.store') }}" method="POST" class="needs-validation" enctype="multipart/form-data">
               @csrf
               <div class="card-header">
                 <h4>Data Pengguna</h4>
@@ -28,7 +28,7 @@
                 <!-- Id Pel -->
                 <div class="form-group">
                     <label for="idpel">Id Pelanggan</label>
-                    <input type="text" name="idpel" id="idpel" class="form-control @error('idpel') is-invalid @enderror" placeholder="Masukkan Id Pelanggan" value="{{ old('idpel') }}">
+                    <input type="text" name="idpel" id="idpel" class="form-control @error('idpel') is-invalid @enderror" placeholder="Masukkan Id Pelanggan" value="{{ old('idpel') }}" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     @error('idpel')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -36,18 +36,18 @@
 
                 <!-- Nama Pelanggan-->
                 <div class="form-group">
-                    <label for="nama">Nama Pelanggan</label>
-                    <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Pelanggan" value="{{ old('nama') }}">
-                    @error('nama')
+                    <label for="namapel">Nama Pelanggan</label>
+                    <input type="text" name="namapel" id="namapel" class="form-control @error('namapel') is-invalid @enderror" placeholder="Masukkan Nama Pelanggan" value="{{ old('namapel') }}" maxlength="50">
+                    @error('namapel')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <!-- Alamat -->
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <input type="text" name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan Alamat Lengkap" value="{{ old('alamat') }}">
-                    @error('alamat')
+                    <label for="alamatpel">Alamat</label>
+                    <input type="text" name="alamatpel" id="alamatpel" class="form-control @error('alamatpel') is-invalid @enderror" placeholder="Masukkan Alamat Lengkap" value="{{ old('alamatpel') }}" maxlength="255">
+                    @error('alamatpel')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -104,125 +104,6 @@
                     @enderror
                 </div>
 
-                <!-- Bulan Awal -->
-                <div class="form-group">
-                    <label for="bulanawal">Bulan Awal</label>
-                    <select name="bulanawal" id="bulanawal" class="form-control">
-                        <option value="" disabled selected>Pilih Bulan Awal</option>
-                        @php
-                            $currentYear = date('Y'); // Tahun saat ini
-                            $months = [
-                                '01' => 'Januari',
-                                '02' => 'Februari',
-                                '03' => 'Maret',
-                                '04' => 'April',
-                                '05' => 'Mei',
-                                '06' => 'Juni',
-                                '07' => 'Juli',
-                                '08' => 'Agustus',
-                                '09' => 'September',
-                                '10' => 'Oktober',
-                                '11' => 'November',
-                                '12' => 'Desember',
-                            ];
-                            foreach ($months as $key => $month) {
-                                echo "<option value=\"$key-$currentYear\">$month $currentYear</option>";
-                            }
-                        @endphp
-                    </select>
-                </div>
-
-                <!-- Bulan Akhir -->
-                <div class="form-group">
-                    <label for="bulanakhir">Bulan Akhir</label>
-                    <select name="bulanakhir" id="bulanakhir" class="form-control">
-                        <option value="" disabled selected>Pilih Bulan Akhir</option>
-                        @php
-                            foreach ($months as $key => $month) {
-                                echo "<option value=\"$key-$currentYear\">$month $currentYear</option>";
-                            }
-                        @endphp
-                    </select>
-                </div>
-
-                <!-- Lembar -->
-                <div class="form-group">
-                    <label for="lembar">Lembar</label>
-                    <input type="text" name="lembar" id="lembar" class="form-control @error('lembar') is-invalid @enderror" placeholder="Masukkan Lembar">
-                    @error('lembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- RP TAG 3 Lembar -->
-                <div class="form-group">
-                    <label for="rptag3lembar">RP TAG 3 Lembar</label>
-                    <div class="input-group">
-                        <span class="input-group-text">Rp.</span>
-                        <input
-                            type="text"
-                            name="rptag3lembar"
-                            id="rptag3lembar"
-                            class="form-control @error('rptag3lembar') is-invalid @enderror"
-                            placeholder="Masukkan RP TAG 3 Lembar"
-                            value="{{ old('rptag3lembar') }}"
-                            oninput="formatNumber(this)"
-                        >
-                    </div>
-                    @error('rptag3lembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- RP BK 3 Lembar -->
-                <div class="form-group">
-                    <label for="rpbk3lembar">RP BK 3 Lembar</label>
-                    <div class="input-group">
-                        <span class="input-group-text">Rp.</span>
-                        <input
-                            type="text"
-                            name="rpbk3lembar"
-                            id="rpbk3lembar"
-                            class="form-control @error('rpbk3lembar') is-invalid @enderror"
-                            placeholder="Masukkan RP BK 3 Lembar"
-                            value="{{ old('rpbk3lembar') }}"
-                            oninput="formatNumber(this)"
-                        >
-                    </div>
-                    @error('rpbk3lembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- RP TOT 3 Lembar -->
-                <div class="form-group">
-                    <label for="rptotlembar">RP TOT Lembar</label>
-                    <div class="input-group">
-                        <span class="input-group-text">Rp.</span>
-                        <input
-                            type="text"
-                            name="rptotlembar"
-                            id="rptotlembar"
-                            class="form-control @error('rptotlembar') is-invalid @enderror"
-                            placeholder="Masukkan RP TOT Lembar"
-                            value="{{ old('rptotlembar') }}"
-                            oninput="formatNumber(this)"
-                        >
-                    </div>
-                    @error('rptotlembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- Kode Ujung PK -->
-                <div class="form-group">
-                    <label for="kodeujungpk">Kode Ujung PK</label>
-                    <input type="text" name="kodeujungpk" id="kodeujungpk" class="form-control @error('kodeujungpk') is-invalid @enderror" placeholder="Masukkan Kode Ujung PK" value="{{ old('kodeujungpk') }}">
-                    @error('kodeujungpk')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
                 <!-- Ampere -->
                 <div class="form-group">
                     <label for="amper">Amper</label>
@@ -248,24 +129,116 @@
                     @enderror
                 </div>
 
+                <!-- Bulan Awal -->
+                <div class="form-group">
+                    <label for="bulanawal">Bulan Awal</label>
+                    <select name="bulanawal" id="bulanawal" class="form-control @error('bulanawal') is-invalid @enderror" onchange="validateMonth()">
+                        <option value="" disabled selected>Pilih Bulan Awal</option>
+                        @php
+                            $currentYear = date('Y');
+                            $months = [
+                                '01' => 'Januari',
+                                '02' => 'Februari',
+                                '03' => 'Maret',
+                                '04' => 'April',
+                                '05' => 'Mei',
+                                '06' => 'Juni',
+                                '07' => 'Juli',
+                                '08' => 'Agustus',
+                                '09' => 'September',
+                                '10' => 'Oktober',
+                                '11' => 'November',
+                                '12' => 'Desember',
+                            ];
+                            foreach ($months as $key => $month) {
+                                $selected = old('bulanawal') == "$key-$currentYear" ? 'selected' : '';
+                                echo "<option value=\"$key-$currentYear\" $selected>$month $currentYear</option>";
+                            }
+                        @endphp
+                    </select>
+                    @error('bulanawal')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <!-- Bulan Akhir -->
+                <div class="form-group">
+                    <label for="bulanakhir">Bulan Akhir</label>
+                    <select name="bulanakhir" id="bulanakhir" class="form-control @error('bulanakhir') is-invalid @enderror" onchange="validateMonth()">
+                        <option value="" disabled selected>Pilih Bulan Akhir</option>
+                        @php
+                            foreach ($months as $key => $month) {
+                                $selected = old('bulanakhir') == "$key-$currentYear" ? 'selected' : '';
+                                echo "<option value=\"$key-$currentYear\" $selected>$month $currentYear</option>";
+                            }
+                        @endphp
+                    </select>
+                    @error('bulanakhir')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <!-- Lembar -->
+                <div class="form-group">
+                    <label for="lembar">Lembar</label>
+                    <input type="number" name="lembar" id="lembar" class="form-control @error('lembar') is-invalid @enderror" placeholder="Masukkan Lembar" value="{{ old('lembar') }}">
+                    @error('lembar')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <!-- RP TAG 3 Lembar -->
+                <div class="form-group">
+                    <label for="rptag3lembar">RP TAG 3 Lembar</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Rp.</span>
+                        <input type="text" name="rptag3lembar" id="rptag3lembar" class="form-control @error('rptag3lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 3 Lembar" value="{{ old('rptag3lembar') }}" oninput="formatNumber3(this); calculateTotal3();">
+                        @error('rptag3lembar')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- RP BK 3 Lembar -->
+                <div class="form-group">
+                    <label for="rpbk3lembar">RP BK 3 Lembar</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Rp.</span>
+                        <input type="text" name="rpbk3lembar" id="rpbk3lembar" class="form-control @error('rpbk3lembar') is-invalid @enderror" placeholder="Masukkan RP BK 3 Lembar" value="{{ old('rpbk3lembar') }}" oninput="formatNumber3(this); calculateTotal3();">
+                        @error('rpbk3lembar')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- RP TOT 3 Lembar -->
+                <div class="form-group">
+                    <label for="rptot3lembar">RP TOT 3 Lembar</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Rp.</span>
+                        <input type="text" name="rptot3lembar" id="rptot3lembar" class="form-control" placeholder="Total RP 3 Lembar" value="{{ old('rptot3lembar') }}" readonly>
+                    </div>
+                </div>
+
+                <!-- Kode Ujung PK -->
+                <div class="form-group">
+                    <label for="kodeujungpk">Kode Ujung PK</label>
+                    <input type="text" name="kodeujungpk" id="kodeujungpk" class="form-control @error('kodeujungpk') is-invalid @enderror" placeholder="Masukkan Kode Ujung PK" value="{{ old('kodeujungpk') }}">
+                    @error('kodeujungpk')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <!-- RP TAG 1 Lembar -->
                 <div class="form-group">
                     <label for="rptag1lembar">RP TAG 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input
-                            type="text"
-                            name="rptag1lembar"
-                            id="rptag1lembar"
-                            class="form-control @error('rptag1lembar') is-invalid @enderror"
-                            placeholder="Masukkan RP TAG 1 Lembar"
-                            value="{{ old('rptag1lembar') }}"
-                            oninput="formatNumber(this)"
-                        >
+                        <input type="text" name="rptag1lembar" id="rptag1lembar" class="form-control @error('rptag1lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 1 Lembar" value="{{ old('rptag1lembar') }}" oninput="formatNumber(this); calculateTotal();">
+                        @error('rptag1lembar')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
-                    @error('rptag1lembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <!-- RP BK 1 Lembar -->
@@ -273,55 +246,36 @@
                     <label for="rpbk1lembar">RP BK 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input
-                            type="text"
-                            name="rpbk1lembar"
-                            id="rpbk1lembar"
-                            class="form-control @error('rpbk1lembar') is-invalid @enderror"
-                            placeholder="Masukkan RP BK 1 Lembar"
-                            value="{{ old('rpbk1lembar') }}"
-                            oninput="formatNumber(this)"
-                        >
+                        <input type="text" name="rpbk1lembar" id="rpbk1lembar" class="form-control @error('rpbk1lembar') is-invalid @enderror" placeholder="Masukkan RP BK 1 Lembar" value="{{ old('rpbk1lembar') }}" oninput="formatNumber(this); calculateTotal();">
+                        @error('rpbk1lembar')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
-                    @error('rpbk1lembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
-                <!-- RP TOT Lembar -->
+                <!-- RP TOT 1 Lembar -->
                 <div class="form-group">
-                    <label for="rptotlembar">RP TOT Lembar</label>
+                    <label for="rptot1lembar">RP TOT 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input
-                            type="text"
-                            name="rptotlembar"
-                            id="rptotlembar"
-                            class="form-control @error('rptotlembar') is-invalid @enderror"
-                            placeholder="Masukkan RP TOT Lembar"
-                            value="{{ old('rptotlembar') }}"
-                            oninput="formatNumber(this)"
-                        >
+                        <input type="text" name="rptot1lembar" id="rptot1lembar" class="form-control" placeholder="Total RP 1 Lembar" value="{{ old('rptot1lembar') }}" readonly>
                     </div>
-                    @error('rptotlembar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <!-- Foto Rumah -->
                 <div class="form-group">
                     <label for="fotorumah">Foto Rumah</label>
-                    <input type="file" name="fotorumah" class="form-control" id="fotorumah" @error('fotorumah') is-invalid @enderror" placeholder="Masukkan Foto Rumah" value="{{ old('fotorumah') }}">
+                    <input type="file" name="fotorumah" class="form-control @error('fotorumah') is-invalid @enderror" id="fotorumah" placeholder="Masukkan Foto Rumah" value="{{ old('fotorumah') }}">
                     @error('fotorumah')
-                        <div class="text-danger">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <!-- Titik Koordinat -->
                 <div class="form-group">
-                    <label for="tikor">Titik Koordinat</label>
-                    <input type="text" name="tikor" id="tikor" class="form-control @error('tikor') is-invalid @enderror" placeholder="Masukkan Titik Koordinat" value="{{ old('tikor') }}">
-                    @error('tikor')
+                    <label for="titikkoordinat">Titik Koordinat</label>
+                    <input type="text" name="titikkoordinat" id="titikkoordinat" class="form-control @error('titikkoordinat') is-invalid @enderror" placeholder="Masukkan Titik Koordinat" value="{{ old('titikkoordinat') }}">
+                    @error('titikkoordinat')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
