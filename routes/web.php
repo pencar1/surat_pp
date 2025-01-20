@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PenggunaController as AdminPenggunaController;
 use App\Http\Controllers\Admin\MutasiNController as AdminMutasiNController;
 
 use App\Http\Controllers\Karyawan\DashboardController as KaryawanDashboardController;
+use App\Http\Controllers\Karyawan\MutasiNController as KaryawanMutasiNController;
 
 use App\Http\Middleware\RoleCheck;
 
@@ -52,9 +53,14 @@ Route::group(['prefix' => 'karyawan', 'middleware' => ['auth', RoleCheck::class 
     Route::get('/dashboard', [KaryawanDashboardController::class, 'index'])->name('dashboard');
 
     // Mutasi N
-    Route::get('/mutasi', function () {
-        return view('karyawan/mutasinkaryawan');
-    })->name('mutasi');
+    Route::get('/mutasi', [KaryawanMutasiNController::class, 'index'])->name('mutasi');
+    Route::get('/mutasi/show/{id}', [KaryawanMutasiNController::class, 'show'])->name('mutasi.show');
+    Route::get('/mutasi/create', [KaryawanMutasiNController::class, 'create'])->name('mutasi.create');
+    Route::post('/mutasi/store', [KaryawanMutasiNController::class, 'store'])->name('mutasi.store');
+    Route::get('/mutasi/edit{id}', [KaryawanMutasiNController::class, 'edit'])->name('mutasi.edit');
+    Route::put('/mutasi/update{id}', [KaryawanMutasiNController::class, 'update'])->name('mutasi.update');
+    Route::delete('/mutasi/delete{id}', [KaryawanMutasiNController::class, 'destroy'])->name('mutasi.delete');
+    Route::post('/mutasi/print/{id}', [KaryawanMutasiNController::class, 'print'])->name('mutasi.print');
 
     // Rubah Tarif
     Route::get('/rubah-tarif', function () {

@@ -25,27 +25,27 @@
               <!-- Nama -->
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" id="nama" class="form-control" value="{{ $data->nama }}" disabled>
+                <div class="form-control">{{ $data->nama }}</div>
               </div>
               <!-- Email -->
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" value="{{ $data->email }}" disabled>
+                <div class="form-control">{{ $data->email }}</div>
               </div>
               <!-- Alamat -->
               <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" class="form-control" value="{{ $data->alamat }}" disabled>
+                <div class="form-control">{{ $data->alamat }}</div>
               </div>
               <!-- No HP -->
               <div class="form-group">
                 <label for="no_hp">No HP</label>
-                <input type="text" id="no_hp" class="form-control" value="{{ $data->nohp }}" disabled>
+                <div class="form-control">{{ $data->nohp }}</div>
               </div>
               <!-- Status -->
               <div class="form-group">
                 <label for="status">Status</label>
-                <input type="text" id="status" class="form-control" value="{{ $data->status }}" disabled>
+                <div class="form-control">{{ $data->status }}</div>
               </div>
             </div>
             <div class="card-footer text-right">
