@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\MutasiN;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\MutasiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MutasiNController extends Controller
 {
@@ -304,5 +306,34 @@ class MutasiNController extends Controller
 
         // Stream file PDF ke browser (menampilkan di tab baru)
         return $pdf->stream('Surat_Pekerjaan_' . $mutasi->idpel . '.pdf');
+    }
+
+    public function exportExcel()
+    {
+        $data = MutasiN::all()->map(function ($item, $key) {
+            return [
+                $key + 1, // No
+                $item->idpel,
+                $item->namapel,
+                $item->alamatpel,
+                $item->tarif,
+                $item->daya,
+                $item->amper,
+                $item->bulanawal,
+                $item->bulanakhir,
+                $item->lembar,
+                $item->rptag3lembar,
+                $item->rpbk3lembar,
+                $item->rptot3lembar,
+                $item->kodeujungpk,
+                $item->rptag1lembar,
+                $item->rpbk1lembar,
+                $item->rptot1lembar,
+                $item->titikkoordinat,
+                $item->status_cetak === 'Belum Dicetak' ? 'Belum Dicetak' : 'Sudah Dicetak',
+            ];
+        });
+
+        return Excel::download(new MutasiExport($data->toArray()), 'Mutasi.xlsx');
     }
 }

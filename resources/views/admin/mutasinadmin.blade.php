@@ -33,6 +33,7 @@
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Data Mutasi N</h4>
                         <div class="buttons">
+                            <a href="{{ route('admin.mutasi.export') }}" class="btn btn-icon icon-left btn-success"><i class="fa fa-file-excel"></i> Export Excel</a>
                             <a href="{{ route('admin.mutasi.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
                         </div>
                   </div>
