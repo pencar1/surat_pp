@@ -17,15 +17,14 @@ Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Profile
-Route::get('/profilea', function () {
-    return view('admin/profilea');
-})->name('profilea');
-
 // Route group for admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', RoleCheck::class . ':admin'], 'as' => 'admin.'], function () {
     // Dashboard
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // Profile
+    Route::get('/profile', [AdminPenggunaController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [AdminPenggunaController::class, 'updateProfile'])->name('profile.update');
 
     // Pengguna
     Route::get('/pengguna', [AdminPenggunaController::class, 'index'])->name('pengguna');
