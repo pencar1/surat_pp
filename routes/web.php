@@ -17,6 +17,11 @@ Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Profile
+Route::get('/profilea', function () {
+    return view('admin/profilea');
+})->name('profilea');
+
 // Route group for admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', RoleCheck::class . ':admin'], 'as' => 'admin.'], function () {
     // Dashboard
@@ -41,8 +46,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', RoleCheck::class . '
     Route::delete('/mutasi/delete{id}', [AdminMutasiNController::class, 'destroy'])->name('mutasi.delete');
     Route::post('/mutasi/print/{id}', [AdminMutasiNController::class, 'print'])->name('mutasi.print');
     Route::get('/mutasi/export', [AdminMutasiNController::class, 'exportExcel'])->name('mutasi.export');
-
-
 
     // Rubah Tarif
     Route::get('/rubah-tarif', function () {

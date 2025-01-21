@@ -5,10 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use app\Models\Pengguna;
+use App\Models\MutasiN;
+
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboardadmin');
+        // Hitung total data pengguna
+        $totalPengguna = Pengguna::count();
+
+        // Hitung total data mutasi
+        $totalMutasi = MutasiN::count();
+
+        // Kirim data ke view
+        return view('admin.dashboardadmin', compact('totalPengguna', 'totalMutasi'));
     }
 }
