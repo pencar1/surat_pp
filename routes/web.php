@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PenggunaController as AdminPenggunaController;
 use App\Http\Controllers\Admin\MutasiNController as AdminMutasiNController;
 
 use App\Http\Controllers\Karyawan\DashboardController as KaryawanDashboardController;
+use App\Http\Controllers\Karyawan\PenggunaController as KaryawanPenggunaController;
 use App\Http\Controllers\Karyawan\MutasiNController as KaryawanMutasiNController;
 
 use App\Http\Middleware\RoleCheck;
@@ -55,6 +56,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', RoleCheck::class . '
 Route::group(['prefix' => 'karyawan', 'middleware' => ['auth', RoleCheck::class . ':karyawan'], 'as' => 'karyawan.'], function () {
     // Dashboard
     Route::get('/dashboard', [KaryawanDashboardController::class, 'index'])->name('dashboard');
+
+    // Profile
+    Route::get('/profile', [KaryawanPenggunaController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [KaryawanPenggunaController::class, 'updateProfile'])->name('profile.update');
 
     // Mutasi N
     Route::get('/mutasi', [KaryawanMutasiNController::class, 'index'])->name('mutasi');
