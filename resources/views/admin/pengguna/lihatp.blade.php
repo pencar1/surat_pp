@@ -6,11 +6,11 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Detail Pengguna</h1>
+      <h1>Lihat Pengguna</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
         <div class="breadcrumb-item"><a href="{{ route('admin.pengguna') }}">Pengguna</a></div>
-        <div class="breadcrumb-item">Detail Pengguna</div>
+        <div class="breadcrumb-item">Lihat Pengguna</div>
       </div>
     </div>
 

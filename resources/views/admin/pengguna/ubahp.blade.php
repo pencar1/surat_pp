@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" id="nama" name="nama" class="form-control" value="{{ old('nama', $data->nama) }}" required>
-                        <div class="invalid-feedback">Nama tidak boleh kosong.</div>
+                        <div class="invalid-feedback">Nama Tidak Boleh Kosong.</div>
                         @error('nama')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" class="form-control" value="{{ old('email', $data->email) }}" required>
-                        <div class="invalid-feedback">Harap masukkan email yang valid.</div>
+                        <div class="invalid-feedback">Harap Masukkan Email Yang Valid.</div>
                         @error('email')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -45,7 +45,7 @@
                     <!-- Password -->
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Kosongkan jika tidak ingin mengubah">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Kosongkan Jika Tidak Ingin Mengubah">
                         @error('password')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
                         <input type="text" id="alamat" name="alamat" class="form-control" value="{{ old('alamat', $data->alamat) }}" required>
-                        <div class="invalid-feedback">Alamat tidak boleh kosong.</div>
+                        <div class="invalid-feedback">Alamat Tidak Boleh Kosong.</div>
                         @error('alamat')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label for="nohp">No HP</label>
                         <input type="text" id="nohp" name="nohp" class="form-control" value="{{ old('nohp', $data->nohp) }}" required>
-                        <div class="invalid-feedback">Harap masukkan nomor HP yang benar.</div>
+                        <div class="invalid-feedback">Harap Masukkan Nomor HP Yang Benar.</div>
                         @error('nohp')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -76,7 +76,7 @@
                             <option value="admin" {{ old('status', $data->status) == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="karyawan" {{ old('status', $data->status) == 'karyawan' ? 'selected' : '' }}>Karyawan</option>
                         </select>
-                        <div class="invalid-feedback">Harap pilih status pengguna.</div>
+                        <div class="invalid-feedback">Harap Pilih Status Pengguna.</div>
                         @error('status')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

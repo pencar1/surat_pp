@@ -21,7 +21,7 @@
             <form action="{{ route('karyawan.mutasi.store') }}" method="POST" class="needs-validation" enctype="multipart/form-data">
               @csrf
               <div class="card-header">
-                <h4>Data Pengguna</h4>
+                <h4>Data Mutasi N</h4>
               </div>
               <div class="card-body">
 
@@ -46,7 +46,7 @@
                 <!-- Alamat -->
                 <div class="form-group">
                     <label for="alamatpel">Alamat</label>
-                    <input type="text" name="alamatpel" id="alamatpel" class="form-control @error('alamatpel') is-invalid @enderror" placeholder="Masukkan Alamat Lengkap" value="{{ old('alamatpel') }}" maxlength="255">
+                    <input type="text" name="alamatpel" id="alamatpel" class="form-control @error('alamatpel') is-invalid @enderror" placeholder="Masukkan Alamat" value="{{ old('alamatpel') }}" maxlength="255">
                     @error('alamatpel')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

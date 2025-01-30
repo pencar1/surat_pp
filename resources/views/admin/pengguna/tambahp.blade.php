@@ -28,7 +28,7 @@
                 <!-- Nama -->
                 <div class="form-group">
                   <label for="nama">Nama</label>
-                  <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan nama lengkap" value="{{ old('nama') }}">
+                  <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Lengkap" value="{{ old('nama') }}">
                   @error('nama')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -37,7 +37,7 @@
                 <!-- Email -->
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan alamat email" value="{{ old('email') }}">
+                  <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email" value="{{ old('email') }}">
                   @error('email')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -46,7 +46,7 @@
                 <!-- Password -->
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan password">
+                  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password">
                   @error('password')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -55,7 +55,7 @@
                 <!-- Alamat -->
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
-                  <input type="text" name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan alamat lengkap" value="{{ old('alamat') }}">
+                  <input type="text" name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan Alamat" value="{{ old('alamat') }}">
                   @error('alamat')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -64,7 +64,7 @@
                 <!-- No HP -->
                 <div class="form-group">
                   <label for="no_hp">No HP</label>
-                  <input type="text" name="nohp" id="no_hp" class="form-control @error('nohp') is-invalid @enderror" placeholder="Masukkan nomor HP" value="{{ old('nohp') }}">
+                  <input type="text" name="nohp" id="no_hp" class="form-control @error('nohp') is-invalid @enderror" placeholder="Masukkan Nomor HP" value="{{ old('nohp') }}">
                   @error('nohp')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror

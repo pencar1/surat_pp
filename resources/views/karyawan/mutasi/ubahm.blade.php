@@ -22,7 +22,7 @@
               @csrf
               @method('PUT')
               <div class="card-header">
-                <h4>Data Pengguna</h4>
+                <h4>Data Mutasi N</h4>
               </div>
               <div class="card-body">
 
