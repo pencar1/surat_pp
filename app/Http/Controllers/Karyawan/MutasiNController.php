@@ -50,7 +50,10 @@ class MutasiNController extends Controller
             'rpbk1lembar' => 'required|numeric|min:1',
             'rptot1lembar' => '',
             'fotorumah' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'titikkoordinat' => 'required|string|max:255',
+            'titikkoordinat' => [
+            'required',
+            'regex:/^-?\d{1,3}\.\d+,\s?-?\d{1,3}\.\d+$/'
+            ],
         ], [
             // Pesan error kustom
             'idpel.required' => 'ID pelanggan harus diisi.',
@@ -94,7 +97,7 @@ class MutasiNController extends Controller
             'fotorumah.mimes' => 'Foto rumah harus berupa file berformat jpeg, png, atau jpg.',
             'fotorumah.max' => 'Ukuran foto rumah maksimal adalah 2MB.',
             'titikkoordinat.required' => 'Titik koordinat harus diisi.',
-            'titikkoordinat.max' => 'Titik koordinat maksimal 255 karakter.',
+            'titikkoordinat.regex' => 'Format titik koordinat tidak valid. Gunakan format: -3.4345959, 114.8522187',
         ]);
 
         // Jika validasi gagal
@@ -167,7 +170,10 @@ class MutasiNController extends Controller
             'rpbk1lembar' => 'required|numeric|min:1',
             'rptot1lembar' => '',
             'fotorumah' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'titikkoordinat' => 'required|string|max:255',
+            'titikkoordinat' => [
+            'required',
+            'regex:/^-?\d{1,3}\.\d+,\s?-?\d{1,3}\.\d+$/'
+            ],
         ], [
             // Pesan error kustom
             'idpel.required' => 'ID pelanggan harus diisi.',
@@ -210,7 +216,7 @@ class MutasiNController extends Controller
             'fotorumah.mimes' => 'Foto rumah harus berupa file berformat jpeg, png, atau jpg.',
             'fotorumah.max' => 'Ukuran foto rumah maksimal adalah 2MB.',
             'titikkoordinat.required' => 'Titik koordinat harus diisi.',
-            'titikkoordinat.max' => 'Titik koordinat maksimal 255 karakter.',
+            'titikkoordinat.regex' => 'Format titik koordinat tidak valid. Gunakan format: -3.4345959, 114.8522187',
         ]);
 
         // Jika validasi gagal

@@ -212,5 +212,17 @@
     });
 </script>
 
+<script>
+    document.getElementById('titikkoordinat').addEventListener('input', function () {
+        var regex = /^-?\d{1,3}\.\d+,\s?-?\d{1,3}\.\d+$/;
+        var input = this.value;
+        if (!regex.test(input)) {
+            this.setCustomValidity("Format titik koordinat tidak valid. Contoh: -3.4345959, 114.8522187");
+        } else {
+            this.setCustomValidity("");
+        }
+    });
+</script>
+
 </body>
 </html>

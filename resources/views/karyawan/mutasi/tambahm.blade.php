@@ -274,7 +274,7 @@
                 <!-- Titik Koordinat -->
                 <div class="form-group">
                     <label for="titikkoordinat">Titik Koordinat</label>
-                    <input type="text" name="titikkoordinat" id="titikkoordinat" class="form-control @error('titikkoordinat') is-invalid @enderror" placeholder="Masukkan Titik Koordinat" value="{{ old('titikkoordinat') }}">
+                    <input type="text" name="titikkoordinat" id="titikkoordinat" class="form-control @error('titikkoordinat') is-invalid @enderror" placeholder="Masukkan Titik Koordinat" value="{{ old('titikkoordinat') }}" pattern="^-?\d{1,3}\.\d+,\s?-?\d{1,3}\.\d+$" title="Format titik koordinat tidak valid. Contoh: -3.4345959, 114.8522187" required>
                     @error('titikkoordinat')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
