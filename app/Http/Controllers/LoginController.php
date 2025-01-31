@@ -19,12 +19,14 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+        $remember = $request->has('remember');
+
         $credentials = [
             'email'    => $request->email,
             'password' => $request->password,
         ];
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
 
             // Gunakan `status` sebagai role
@@ -42,9 +44,12 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect()->route('login')->with('success', 'Kamu berhasil logout');
     }
 }

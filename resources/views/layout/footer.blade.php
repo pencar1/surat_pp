@@ -49,46 +49,31 @@
 <!-- SweetAlert simpan data -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const saveButtons = document.querySelectorAll('.saveButton'); // Mencari tombol dengan kelas .saveButton
+        const saveButtons = document.querySelectorAll('.saveButton');
 
         saveButtons.forEach(button => {
             button.addEventListener('click', function (event) {
-                event.preventDefault(); // Mencegah form submit langsung
-                const form = button.closest('form'); // Mendapatkan form terdekat dari tombol
+                event.preventDefault();
+                const form = button.closest('form');
 
                 if (!form) {
-                    console.error("Form tidak ditemukan!"); // Debugging jika form tidak ditemukan
+                    console.error("Form tidak ditemukan!");
                     return;
                 }
 
-                // Menampilkan konfirmasi SweetAlert
                 Swal.fire({
                     title: 'Apakah Anda yakin?',
-                    text: `Data akan disimpan!`,
+                    text: 'Data akan disimpan!',
                     icon: 'warning',
                     showCancelButton: true,
                     cancelButtonText: 'Tidak, batalkan!',
                     confirmButtonText: 'Ya, simpan!',
-                    confirmButtonClass: 'btn btn-success',
-                    cancelButtonClass: 'btn btn-danger',
+                    confirmButtonColor: '#28a745',
+                    cancelButtonColor: '#dc3545',
                     reverseButtons: true
                 }).then((willSave) => {
                     if (willSave.isConfirmed) {
-                        // Jika pengguna mengonfirmasi, form akan disubmit
-                        Swal.fire({
-                            title: 'Data Berhasil Disimpan!',
-                            icon: 'success',
-                            confirmButtonClass: 'btn btn-success'
-                        }).then(() => {
-                            form.submit(); // Mengirimkan form untuk menyimpan data
-                        });
-                    } else {
-                        // Jika pengguna membatalkan, tampilkan info
-                        Swal.fire({
-                            title: 'Data Anda aman!',
-                            icon: 'info',
-                            confirmButtonClass: 'btn btn-info'
-                        });
+                        form.submit(); // Form langsung disubmit tanpa SweetAlert kedua
                     }
                 });
             });
@@ -103,18 +88,17 @@
 
         deleteButtons.forEach(button => {
             button.addEventListener('click', function (event) {
-                event.preventDefault(); // Mencegah aksi default (submit form)
+                event.preventDefault();
 
-                // Mengambil ID form yang sesuai
                 const formId = this.id.replace('swal-delete-', 'deleteForm-');
                 const form = document.getElementById(formId);
 
                 if (!form) {
-                    console.error('Form not found:', formId); // Untuk debug jika form tidak ditemukan
+                    console.error('Form not found:', formId);
                     return;
                 }
 
-                // Menampilkan konfirmasi SweetAlert menggunakan SweetAlert2
+                // Menampilkan konfirmasi SweetAlert dengan warna tombol yang disesuaikan
                 Swal.fire({
                     title: 'Apakah Anda yakin?',
                     text: "Data ini akan dihapus permanen!",
@@ -122,20 +106,23 @@
                     showCancelButton: true,
                     confirmButtonText: 'Ya, Hapus!',
                     cancelButtonText: 'Batal',
-                    reverseButtons: true,
-                    dangerMode: true, // Menandakan bahwa ini adalah aksi yang berisiko
+                    confirmButtonColor: '#d33', // Merah untuk tombol hapus
+                    cancelButtonColor: '#28a745', // Hijau untuk tombol batal (atau ganti dengan #007bff untuk biru)
+                    reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Menampilkan konfirmasi setelah penghapusan
-                        Swal.fire('Data Berhasil Dihapus!', {
+                        Swal.fire({
+                            title: 'Data Berhasil Dihapus!',
                             icon: 'success',
+                            confirmButtonColor: '#28a745' // Hijau untuk konfirmasi sukses
                         }).then(() => {
-                            form.submit(); // Kirim form setelah konfirmasi hapus
+                            form.submit();
                         });
                     } else {
-                        // Menampilkan informasi bahwa data aman
-                        Swal.fire('Data Anda aman!', {
+                        Swal.fire({
+                            title: 'Data Anda aman!',
                             icon: 'info',
+                            confirmButtonColor: '#007bff' // Biru untuk konfirmasi batal
                         });
                     }
                 });
@@ -206,21 +193,22 @@
 <!-- Fungsi untuk logout -->
 <script>
     document.getElementById('logout-btn').addEventListener('click', function (e) {
-      e.preventDefault();
-      Swal.fire({
-        title: 'Anda yakin ingin logout?',
-        text: "Anda akan keluar dari sesi saat ini.",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Ya, Logout!',
-        cancelButtonText: 'Batal'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "{{ route('logout') }}";
-        }
-      });
+        e.preventDefault();
+        Swal.fire({
+            title: 'Anda yakin ingin logout?',
+            text: "Anda akan keluar dari sesi saat ini.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33', // Merah untuk tombol logout
+            cancelButtonColor: '#3085d6', // Biru untuk tombol batal
+            confirmButtonText: 'Ya, Logout!',
+            cancelButtonText: 'Batal',
+            reverseButtons: true // Menukar posisi tombol
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "{{ route('logout') }}";
+            }
+        });
     });
 </script>
 
