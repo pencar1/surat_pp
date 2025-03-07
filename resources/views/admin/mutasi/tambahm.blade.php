@@ -57,14 +57,14 @@
                     <label for="tarif">Tarif</label>
                     <select name="tarif" id="tarif" class="form-control @error('tarif') is-invalid @enderror">
                         <option value="" disabled {{ old('tarif') ? '' : 'selected' }}>Pilih Tarif</option>
-                        <option value="r1" {{ old('tarif') == 'r1' ? 'selected' : '' }}>R1</option>
-                        <option value="r1m" {{ old('tarif') == 'r1m' ? 'selected' : '' }}>R1M</option>
-                        <option value="r1t" {{ old('tarif') == 'r1t' ? 'selected' : '' }}>R1T</option>
-                        <option value="r1mt" {{ old('tarif') == 'r1mt' ? 'selected' : '' }}>R1MT</option>
-                        <option value="r2" {{ old('tarif') == 'r2' ? 'selected' : '' }}>R2</option>
-                        <option value="r2t" {{ old('tarif') == 'r2t' ? 'selected' : '' }}>R1T</option>
-                        <option value="r3" {{ old('tarif') == 'r3' ? 'selected' : '' }}>R3</option>
-                        <option value="r3t" {{ old('tarif') == 'r3t' ? 'selected' : '' }}>R3T</option>
+                        <option value="R1" {{ old('tarif') == 'R1' ? 'selected' : '' }}>R1</option>
+                        <option value="R1M" {{ old('tarif') == 'R1M' ? 'selected' : '' }}>R1M</option>
+                        <option value="R1T" {{ old('tarif') == 'R1T' ? 'selected' : '' }}>R1T</option>
+                        <option value="R1MT" {{ old('tarif') == 'R1MT' ? 'selected' : '' }}>R1MT</option>
+                        <option value="R2" {{ old('tarif') == 'R2' ? 'selected' : '' }}>R2</option>
+                        <option value="R1T" {{ old('tarif') == 'R1T' ? 'selected' : '' }}>R1T</option>
+                        <option value="R3" {{ old('tarif') == 'R3' ? 'selected' : '' }}>R3</option>
+                        <option value="R3T" {{ old('tarif') == 'R3T' ? 'selected' : '' }}>R3T</option>
                     </select>
                     @error('tarif')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -192,7 +192,7 @@
                     <label for="rptag3lembar">RP TAG 3 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="number" name="rptag3lembar" id="rptag3lembar" class="form-control @error('rptag3lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 3 Lembar" value="{{ old('rptag3lembar') }}" oninput="calculateTotal3();">
+                        <input type="text" name="rptag3lembar" id="rptag3lembar" class="form-control @error('rptag3lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 3 Lembar" value="{{ old('rptag3lembar') }}">
                         @error('rptag3lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -204,7 +204,7 @@
                     <label for="rpbk3lembar">RP BK 3 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="number" name="rpbk3lembar" id="rpbk3lembar" class="form-control @error('rpbk3lembar') is-invalid @enderror" placeholder="Masukkan RP BK 3 Lembar" value="{{ old('rpbk3lembar') }}" oninput="calculateTotal3();">
+                        <input type="text" name="rpbk3lembar" id="rpbk3lembar" class="form-control @error('rpbk3lembar') is-invalid @enderror" placeholder="Masukkan RP BK 3 Lembar" value="{{ old('rpbk3lembar') }}">
                         @error('rpbk3lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -234,7 +234,7 @@
                     <label for="rptag1lembar">RP TAG 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="number" name="rptag1lembar" id="rptag1lembar" class="form-control @error('rptag1lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 1 Lembar" value="{{ old('rptag1lembar') }}" oninput="calculateTotal1();">
+                        <input type="text" name="rptag1lembar" id="rptag1lembar" class="form-control @error('rptag1lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 1 Lembar" value="{{ old('rptag1lembar') }}">
                         @error('rptag1lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -246,7 +246,7 @@
                     <label for="rpbk1lembar">RP BK 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="number" name="rpbk1lembar" id="rpbk1lembar" class="form-control @error('rpbk1lembar') is-invalid @enderror" placeholder="Masukkan RP BK 1 Lembar" value="{{ old('rpbk1lembar') }}" oninput="calculateTotal1();">
+                        <input type="text" name="rpbk1lembar" id="rpbk1lembar" class="form-control @error('rpbk1lembar') is-invalid @enderror" placeholder="Masukkan RP BK 1 Lembar" value="{{ old('rpbk1lembar') }}">
                         @error('rpbk1lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

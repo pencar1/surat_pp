@@ -44,13 +44,13 @@ class MutasiNController extends Controller
             'bulanawal' => 'required|string|max:50',
             'bulanakhir' => 'required|string|max:50',
             'lembar' => 'required|integer|min:1',
-            'rptag3lembar' => 'required|regex:/^\d+$/',
-            'rpbk3lembar' => 'required|regex:/^\d+$/',
-            'rptot3lembar' => 'nullable|regex:/^\d+$/',
+            'rptag3lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rpbk3lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rptot3lembar' => 'nullable|string|regex:/^\d{1,3}(\.\d{3})*$/',
             'kodeujungpk' => 'required|string|max:50',
-            'rptag1lembar' => 'required|regex:/^\d+$/',
-            'rpbk1lembar' => 'required|regex:/^\d+$/',
-            'rptot1lembar' => 'nullable|regex:/^\d+$/',
+            'rptag1lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rpbk1lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rptot1lembar' => 'nullable|string|regex:/^\d{1,3}(\.\d{3})*$/',
             'fotorumah' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'titikkoordinat' => [
             'required',
@@ -117,13 +117,13 @@ class MutasiNController extends Controller
         $mutasi->bulanawal = $request->input('bulanawal');
         $mutasi->bulanakhir = $request->input('bulanakhir');
         $mutasi->lembar = $request->input('lembar');
-        $mutasi->rptag3lembar = str_replace('.', '', $request->input('rptag3lembar'));
-        $mutasi->rpbk3lembar = str_replace('.', '', $request->input('rpbk3lembar'));
-        $mutasi->rptot3lembar = str_replace('.', '', $request->input('rptot3lembar'));
+        $mutasi->rptag3lembar =  $request->input('rptag3lembar');
+        $mutasi->rpbk3lembar =  $request->input('rpbk3lembar');
+        $mutasi->rptot3lembar =  $request->input('rptot3lembar');
         $mutasi->kodeujungpk = $request->input('kodeujungpk');
-        $mutasi->rptag1lembar = str_replace('.', '', $request->input('rptag1lembar'));
-        $mutasi->rpbk1lembar = str_replace('.', '', $request->input('rpbk1lembar'));
-        $mutasi->rptot1lembar = str_replace('.', '', $request->input('rptot1lembar'));
+        $mutasi->rptag1lembar = $request->input('rptag1lembar');
+        $mutasi->rpbk1lembar = $request->input('rpbk1lembar');
+        $mutasi->rptot1lembar = $request->input('rptot1lembar');
         $mutasi->fotorumah = $request->input('fotorumah');
         $mutasi->titikkoordinat = $request->input('titikkoordinat');
 
@@ -164,13 +164,13 @@ class MutasiNController extends Controller
             'bulanawal' => 'required|string|max:50',
             'bulanakhir' => 'required|string|max:50',
             'lembar' => 'required|integer|min:1',
-            'rptag3lembar' => 'required|regex:/^\d+$/',
-            'rpbk3lembar' => 'required|regex:/^\d+$/',
-            'rptot3lembar' => 'nullable|regex:/^\d+$/',
+            'rptag3lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rpbk3lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rptot3lembar' => 'nullable|string|regex:/^\d{1,3}(\.\d{3})*$/',
             'kodeujungpk' => 'required|string|max:50',
-            'rptag1lembar' => 'required|regex:/^\d+$/',
-            'rpbk1lembar' => 'required|regex:/^\d+$/',
-            'rptot1lembar' => 'nullable|regex:/^\d+$/',
+            'rptag1lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rpbk1lembar' => 'required|string|regex:/^\d{1,3}(\.\d{3})*$/',
+            'rptot1lembar' => 'nullable|string|regex:/^\d{1,3}(\.\d{3})*$/',
             'fotorumah' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'titikkoordinat' => [
             'required',
@@ -240,13 +240,13 @@ class MutasiNController extends Controller
         $mutasi->bulanawal = $request->input('bulanawal');
         $mutasi->bulanakhir = $request->input('bulanakhir');
         $mutasi->lembar = $request->input('lembar');
-        $mutasi->rptag3lembar = str_replace('.', '', $request->input('rptag3lembar'));
-        $mutasi->rpbk3lembar = str_replace('.', '', $request->input('rpbk3lembar'));
-        $mutasi->rptot3lembar = str_replace('.', '', $request->input('rptot3lembar'));
+        $mutasi->rptag3lembar =  $request->input('rptag3lembar');
+        $mutasi->rpbk3lembar =  $request->input('rpbk3lembar');
+        $mutasi->rptot3lembar =  $request->input('rptot3lembar');
         $mutasi->kodeujungpk = $request->input('kodeujungpk');
-        $mutasi->rptag1lembar = str_replace('.', '', $request->input('rptag1lembar'));
-        $mutasi->rpbk1lembar = str_replace('.', '', $request->input('rpbk1lembar'));
-        $mutasi->rptot1lembar = str_replace('.', '', $request->input('rptot1lembar'));
+        $mutasi->rptag1lembar = $request->input('rptag1lembar');
+        $mutasi->rpbk1lembar = $request->input('rpbk1lembar');
+        $mutasi->rptot1lembar = $request->input('rptot1lembar');
         $mutasi->titikkoordinat = $request->input('titikkoordinat');
 
         if ($request->hasFile('fotorumah')) {

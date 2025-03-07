@@ -64,11 +64,8 @@ Route::group(['prefix' => 'karyawan', 'middleware' => ['auth', RoleCheck::class 
     // Mutasi N
     Route::get('/mutasi', [KaryawanMutasiNController::class, 'index'])->name('mutasi');
     Route::get('/mutasi/show/{id}', [KaryawanMutasiNController::class, 'show'])->name('mutasi.show');
-    Route::get('/mutasi/create', [KaryawanMutasiNController::class, 'create'])->name('mutasi.create');
-    Route::post('/mutasi/store', [KaryawanMutasiNController::class, 'store'])->name('mutasi.store');
     Route::get('/mutasi/edit{id}', [KaryawanMutasiNController::class, 'edit'])->name('mutasi.edit');
     Route::put('/mutasi/update{id}', [KaryawanMutasiNController::class, 'update'])->name('mutasi.update');
-    Route::delete('/mutasi/delete{id}', [KaryawanMutasiNController::class, 'destroy'])->name('mutasi.delete');
     Route::post('/mutasi/print/{id}', [KaryawanMutasiNController::class, 'print'])->name('mutasi.print');
 
     // Rubah Tarif

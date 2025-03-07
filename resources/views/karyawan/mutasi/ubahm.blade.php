@@ -208,7 +208,7 @@
                     <label for="rptag3lembar">RP TAG 3 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="text" name="rptag3lembar" id="rptag3lembar" class="form-control @error('rptag3lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 3 Lembar" value="{{ old('rptag3lembar', $data->rptag3lembar) }}" oninput=" calculateTotal3();">
+                        <input type="text" name="rptag3lembar" id="rptag3lembar" class="form-control @error('rptag3lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 3 Lembar" value="{{ old('rptag3lembar', $data->rptag3lembar) }}">
                         @error('rptag3lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -220,7 +220,7 @@
                     <label for="rpbk3lembar">RP BK 3 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="text" name="rpbk3lembar" id="rpbk3lembar" class="form-control @error('rpbk3lembar') is-invalid @enderror" placeholder="Masukkan RP BK 3 Lembar" value="{{ old('rpbk3lembar', $data->rpbk3lembar) }}" oninput=" calculateTotal3();">
+                        <input type="text" name="rpbk3lembar" id="rpbk3lembar" class="form-control @error('rpbk3lembar') is-invalid @enderror" placeholder="Masukkan RP BK 3 Lembar" value="{{ old('rpbk3lembar', $data->rpbk3lembar) }}">                        
                         @error('rpbk3lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -250,7 +250,7 @@
                     <label for="rptag1lembar">RP TAG 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="text" name="rptag1lembar" id="rptag1lembar" class="form-control @error('rptag1lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 1 Lembar" value="{{ old('rptag1lembar', $data->rptag1lembar) }}" oninput=" calculateTotal1();">
+                        <input type="text" name="rptag1lembar" id="rptag1lembar" class="form-control @error('rptag1lembar') is-invalid @enderror" placeholder="Masukkan RP TAG 1 Lembar" value="{{ old('rptag1lembar', $data->rptag1lembar) }}">
                         @error('rptag1lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -262,7 +262,7 @@
                     <label for="rpbk1lembar">RP BK 1 Lembar</label>
                     <div class="input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="text" name="rpbk1lembar" id="rpbk1lembar" class="form-control @error('rpbk1lembar') is-invalid @enderror" placeholder="Masukkan RP BK 1 Lembar" value="{{ old('rpbk1lembar', $data->rpbk1lembar) }}" oninput=" calculateTotal1();">
+                        <input type="text" name="rpbk1lembar" id="rpbk1lembar" class="form-control @error('rpbk1lembar') is-invalid @enderror" placeholder="Masukkan RP BK 1 Lembar" value="{{ old('rpbk1lembar', $data->rpbk1lembar) }}">                        
                         @error('rpbk1lembar')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

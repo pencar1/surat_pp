@@ -133,26 +133,62 @@
 
 <!-- Fungsi untuk menghitung total 3 lembar -->
 <script>
+    function formatRupiah(input) {
+        let angka = input.value.replace(/\D/g, ""); // Hapus semua karakter non-angka
+        let formatted = angka.replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Format angka dengan titik
+        input.value = formatted;
+    }
+
     function calculateTotal3() {
-        const tag = parseInt(document.getElementById('rptag3lembar').value) || 0;
-        const bk = parseInt(document.getElementById('rpbk3lembar').value) || 0;
+        const tag = parseInt(document.getElementById('rptag3lembar').value.replace(/\./g, "")) || 0;
+        const bk = parseInt(document.getElementById('rpbk3lembar').value.replace(/\./g, "")) || 0;
 
         const total = tag + bk;
 
-        document.getElementById('rptot3lembar').value = total;
+        // Format hasil total sebagai rupiah
+        document.getElementById('rptot3lembar').value = total.toLocaleString("id-ID").replace(/,/g, ".");
     }
+
+    // Event listener untuk format otomatis dan perhitungan real-time
+    document.getElementById('rptag3lembar').addEventListener('input', function () {
+        formatRupiah(this);
+        calculateTotal3();
+    });
+
+    document.getElementById('rpbk3lembar').addEventListener('input', function () {
+        formatRupiah(this);
+        calculateTotal3();
+    });
 </script>
 
 <!-- Fungsi untuk menghitung total 1 lembar -->
 <script>
+    function formatRupiah1(input) {
+        let angka = input.value.replace(/\D/g, ""); // Hapus semua karakter non-angka
+        let formatted = angka.replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Format angka dengan titik
+        input.value = formatted;
+    }
+
     function calculateTotal1() {
-        const tag = parseInt(document.getElementById('rptag1lembar').value) || 0;
-        const bk = parseInt(document.getElementById('rpbk1lembar').value) || 0;
+        const tag = parseInt(document.getElementById('rptag1lembar').value.replace(/\./g, "")) || 0;
+        const bk = parseInt(document.getElementById('rpbk1lembar').value.replace(/\./g, "")) || 0;
 
         const total = tag + bk;
 
-        document.getElementById('rptot1lembar').value = total;
+        // Format hasil total sebagai rupiah
+        document.getElementById('rptot1lembar').value = total.toLocaleString("id-ID").replace(/,/g, ".");
     }
+
+    // Event listener untuk format otomatis dan perhitungan real-time
+    document.getElementById('rptag1lembar').addEventListener('input', function () {
+        formatRupiah1(this);
+        calculateTotal1();
+    });
+
+    document.getElementById('rpbk1lembar').addEventListener('input', function () {
+        formatRupiah1(this);
+        calculateTotal1();
+    });
 </script>
 
 <!-- Fungsi untuk bulan -->

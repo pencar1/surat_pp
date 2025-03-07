@@ -32,9 +32,6 @@
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Data Mutasi N</h4>
-                        <div class="buttons">
-                            <a href="{{ route('karyawan.mutasi.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
-                        </div>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -77,13 +74,6 @@
                                             @csrf
                                             <button type="submit" data-toggle="tooltip" title="Cetak Mutasi" class="btn btn-link btn-primary">
                                                 <i class="fa fa-print text-white"></i>
-                                            </button>
-                                        </form>
-                                        <form action="{{ route('karyawan.mutasi.delete', ['id' => $d->idpel]) }}" method="POST" class="d-inline" id="deleteForm-{{ $d->idpel }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="button" data-toggle="tooltip" title="Hapus Mutasi" class="btn btn-link btn-danger deleteButton" id="swal-delete-{{ $d->idpel }}">
-                                                <i class="fa fa-times text-white"></i>
                                             </button>
                                         </form>
                                     </div>
