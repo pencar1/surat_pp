@@ -44,19 +44,13 @@
                 <!-- Id Pel -->
                 <div class="form-group">
                     <label for="idpel">Id Pelanggan</label>
-                    <input type="text" name="idpel" id="idpel" class="form-control @error('idpel') is-invalid @enderror" placeholder="Masukkan Id Pelanggan" value="{{ old('idpel', $data->idpel) }}" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                    @error('idpel')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <div class="form-control">{{ $data->idpel }}</div>
                 </div>
 
                 <!-- Nama Pelanggan-->
                 <div class="form-group">
                     <label for="namapel">Nama Pelanggan</label>
-                    <input type="text" name="namapel" id="namapel" class="form-control @error('namapel') is-invalid @enderror" placeholder="Masukkan Nama Pelanggan" value="{{ old('namapel', $data->namapel) }}" maxlength="50">
-                    @error('namapel')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <div class="form-control">{{ $data->namapel }}</div>
                 </div>
 
                 <!-- Alamat -->

@@ -132,10 +132,10 @@
                 <!-- Bulan Awal -->
                 <div class="form-group">
                     <label for="bulanawal">Bulan Awal</label>
-                    <select name="bulanawal" id="bulanawal" class="form-control @error('bulanawal') is-invalid @enderror" onchange="validateMonth()">
+                    <select name="bulanawal" id="bulanawal" class="form-control @error('bulanawal') is-invalid @enderror">
                         <option value="" disabled selected>Pilih Bulan Awal</option>
                         @php
-                            $currentYear = date('Y');
+                            $years = [2024, 2025];
                             $months = [
                                 '01' => 'Januari',
                                 '02' => 'Februari',
@@ -150,9 +150,13 @@
                                 '11' => 'November',
                                 '12' => 'Desember',
                             ];
-                            foreach ($months as $key => $month) {
-                                $selected = old('bulanawal') == "$key-$currentYear" ? 'selected' : '';
-                                echo "<option value=\"$key-$currentYear\" $selected>$month $currentYear</option>";
+
+                            foreach ($years as $year) {
+                                foreach ($months as $key => $month) {
+                                    $value = "$key-$year";
+                                    $selected = (old('bulanawal', $data->bulanawal ?? '') == $value) ? 'selected' : '';
+                                    echo "<option value=\"$value\" $selected>$month $year</option>";
+                                }
                             }
                         @endphp
                     </select>
@@ -164,12 +168,15 @@
                 <!-- Bulan Akhir -->
                 <div class="form-group">
                     <label for="bulanakhir">Bulan Akhir</label>
-                    <select name="bulanakhir" id="bulanakhir" class="form-control @error('bulanakhir') is-invalid @enderror" onchange="validateMonth()">
+                    <select name="bulanakhir" id="bulanakhir" class="form-control @error('bulanakhir') is-invalid @enderror">
                         <option value="" disabled selected>Pilih Bulan Akhir</option>
                         @php
-                            foreach ($months as $key => $month) {
-                                $selected = old('bulanakhir') == "$key-$currentYear" ? 'selected' : '';
-                                echo "<option value=\"$key-$currentYear\" $selected>$month $currentYear</option>";
+                            foreach ($years as $year) {
+                                foreach ($months as $key => $month) {
+                                    $value = "$key-$year";
+                                    $selected = (old('bulanakhir', $data->bulanakhir ?? '') == $value) ? 'selected' : '';
+                                    echo "<option value=\"$value\" $selected>$month $year</option>";
+                                }
                             }
                         @endphp
                     </select>

@@ -145,52 +145,63 @@
                     @enderror
                 </div>
 
+                @php
+                    $years = [2024, 2025]; // Tahun yang tersedia
+                    $months = [
+                        '01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
+                        '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
+                        '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+                    ];
+
+                    function formatBulan($bulanTahun) {
+                        global $months; // Menggunakan array bulan yang sudah didefinisikan
+                        if ($bulanTahun) {
+                            $parts = explode("-", $bulanTahun);
+                            $bulan = $parts[0];
+                            $tahun = $parts[1];
+                            return $months[$bulan] . " " . $tahun;
+                        }
+                        return "-";
+                    }
+                @endphp
+
                 <!-- Bulan Awal -->
                 <div class="form-group">
                     <label for="bulanawal">Bulan Awal</label>
-                    <select name="bulanawal" id="bulanawal" class="form-control @error('bulanawal') is-invalid @enderror" onchange="validateMonth()">
+                    <select name="bulanawal" id="bulanawal" class="form-control @error('bulanawal') is-invalid @enderror">
                         <option value="" disabled selected>Pilih Bulan Awal</option>
-                        @php
-                            $currentYear = date('Y');
-                            $months = [
-                                '01' => 'Januari',
-                                '02' => 'Februari',
-                                '03' => 'Maret',
-                                '04' => 'April',
-                                '05' => 'Mei',
-                                '06' => 'Juni',
-                                '07' => 'Juli',
-                                '08' => 'Agustus',
-                                '09' => 'September',
-                                '10' => 'Oktober',
-                                '11' => 'November',
-                                '12' => 'Desember',
-                            ];
-                            foreach ($months as $key => $month) {
-                                $selected = old('bulanawal', $data->bulanawal) == "$key-$currentYear" ? 'selected' : '';
-                                echo "<option value=\"$key-$currentYear\" $selected>$month $currentYear</option>";
-                            }
-                        @endphp
+                        @foreach ($years as $year)
+                            @foreach ($months as $key => $month)
+                                @php
+                                    $value = "$key-$year";
+                                    $selected = (old('bulanawal', $data->bulanawal ?? '') == $value) ? 'selected' : '';
+                                @endphp
+                                <option value="{{ $value }}" {{ $selected }}>{{ $month }} {{ $year }}</option>
+                            @endforeach
+                        @endforeach
                     </select>
                     @error('bulanawal')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <!-- Bulan Akhir -->
                 <div class="form-group">
                     <label for="bulanakhir">Bulan Akhir</label>
-                    <select name="bulanakhir" id="bulanakhir" class="form-control @error('bulanakhir') is-invalid @enderror" onchange="validateMonth()">
+                    <select name="bulanakhir" id="bulanakhir" class="form-control @error('bulanakhir') is-invalid @enderror">
                         <option value="" disabled selected>Pilih Bulan Akhir</option>
-                        @php
-                            foreach ($months as $key => $month) {
-                                $selected = old('bulanakhir', $data->bulanakhir) == "$key-$currentYear" ? 'selected' : '';
-                                echo "<option value=\"$key-$currentYear\" $selected>$month $currentYear</option>";
-                            }
-                        @endphp
+                        @foreach ($years as $year)
+                            @foreach ($months as $key => $month)
+                                @php
+                                    $value = "$key-$year";
+                                    $selected = (old('bulanakhir', $data->bulanakhir ?? '') == $value) ? 'selected' : '';
+                                @endphp
+                                <option value="{{ $value }}" {{ $selected }}>{{ $month }} {{ $year }}</option>
+                            @endforeach
+                        @endforeach
                     </select>
                     @error('bulanakhir')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 

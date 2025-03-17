@@ -68,17 +68,35 @@
                       <div class="form-control">{{ $data->amper }}</div>
                   </div>
 
-                  <!-- Bulan Awal -->
-                  <div class="form-group">
-                      <label for="bulanawal">Bulan Awal</label>
-                      <div class="form-control">{{ $data->bulanawal }}</div>
-                  </div>
+                @php
+                    function formatBulan($bulanTahun) {
+                        $bulanIndo = [
+                            "01" => "Januari", "02" => "Februari", "03" => "Maret", "04" => "April",
+                            "05" => "Mei", "06" => "Juni", "07" => "Juli", "08" => "Agustus",
+                            "09" => "September", "10" => "Oktober", "11" => "November", "12" => "Desember"
+                        ];
 
-                  <!-- Bulan Akhir -->
-                  <div class="form-group">
-                      <label for="bulanakhir">Bulan Akhir</label>
-                      <div class="form-control">{{ $data->bulanakhir }}</div>
-                  </div>
+                        if ($bulanTahun) {
+                            $parts = explode("-", $bulanTahun); // Pisahkan MM-YYYY
+                            $bulan = $parts[0]; // Ambil angka bulan
+                            $tahun = $parts[1]; // Ambil tahun
+                            return $bulanIndo[$bulan] . " " . $tahun;
+                        }
+                        return "-";
+                    }
+                @endphp
+
+                <!-- Bulan Awal -->
+                <div class="form-group">
+                    <label for="bulanawal">Bulan Awal</label>
+                    <div class="form-control">{{ formatBulan($data->bulanawal) }}</div>
+                </div>
+
+                <!-- Bulan Akhir -->
+                <div class="form-group">
+                    <label for="bulanakhir">Bulan Akhir</label>
+                    <div class="form-control">{{ formatBulan($data->bulanakhir) }}</div>
+                </div>
 
                   <!-- Lembar -->
                   <div class="form-group">
