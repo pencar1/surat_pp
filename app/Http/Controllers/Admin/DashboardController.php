@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use app\Models\Pengguna;
 use App\Models\MutasiN;
+use App\Models\RubahTarif;
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,10 @@ class DashboardController extends Controller
         // Hitung total data mutasi
         $totalMutasi = MutasiN::count();
 
+        // Hitung total data rubah tarif
+        $totalRubahTarif = RubahTarif::count();
+
         // Kirim data ke view
-        return view('admin.dashboardadmin', compact('totalPengguna', 'totalMutasi'));
+        return view('admin.dashboardadmin', compact('totalPengguna', 'totalMutasi', 'totalRubahTarif'));
     }
 }

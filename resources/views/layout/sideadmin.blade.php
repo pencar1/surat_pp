@@ -22,8 +22,8 @@
             <i class="fas fa-money-check-alt"></i> <span>Mutasi N</span>
           </a>
         </li>
-        <li class="{{ Request::is('admin/rubah-tarif') ? 'active' : '' }}">
-          <a class="nav-link" href="{{ route('admin.rubah-tarif') }}">
+        <li class="{{ Request::is('admin/rubahtarif') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('admin.rubahtarif') }}">
             <i class="fas fa-address-card"></i> <span>Rubah Tarif</span>
           </a>
         </li>

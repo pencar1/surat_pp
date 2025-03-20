@@ -17,8 +17,8 @@
             <i class="fas fa-money-check-alt"></i> <span>Mutasi N</span>
           </a>
         </li>
-        <li class="{{ Request::is('karyawan/rubah-tarif') ? 'active' : '' }}">
-          <a class="nav-link" href="{{ route('karyawan.rubah-tarif') }}">
+        <li class="{{ Request::is('karyawan/rubahtarif') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('karyawan.rubahtarif') }}">
             <i class="fas fa-address-card"></i> <span>Rubah Tarif</span>
           </a>
         </li>

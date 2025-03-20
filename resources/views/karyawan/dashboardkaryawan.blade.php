@@ -31,8 +31,8 @@
                   <h4>Rubah Tarif</h4>
                 </div>
                 <div class="card-body">
-                  4,732
-                </div>
+                {{ $totalRubahTarif }}
+              </div>
               </div>
             </div>
           </div>

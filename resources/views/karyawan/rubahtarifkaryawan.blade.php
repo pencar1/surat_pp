@@ -2,127 +2,88 @@
 
 @section('content')
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-          <div class="section-header">
-            <h1>Halaman Rubah Tarif</h1>
+<!-- Main Content -->
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Halaman Perubahan Tarif</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="{{ route('karyawan.dashboard') }}">Dashboard</a></div>
-              <div class="breadcrumb-item">Rubah Tarif</div>
-            </div>
-          </div>
-
-          <div class="section-body">
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Data Rubah Tarif</h4>
-                        <div class="buttons">
-                            <a href="#" class="btn btn-icon icon-left btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
-                        </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-striped" id="table-1">
-                        <thead>
-                          <tr>
-                            <th class="text-center">
-                              #
-                            </th>
-                            <th>Task Name</th>
-                            <th>Progress</th>
-                            <th>Members</th>
-                            <th>Due Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              1
-                            </td>
-                            <td>Create a mobile app</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                                <div class="progress-bar bg-success" data-width="100%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-5.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                            </td>
-                            <td>2018-01-20</td>
-                            <td><div class="badge badge-success">Completed</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              2
-                            </td>
-                            <td>Redesign homepage</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="0%">
-                                <div class="progress-bar" data-width="0"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-1.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-3.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-4.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
-                            </td>
-                            <td>2018-04-10</td>
-                            <td><div class="badge badge-info">Todo</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              3
-                            </td>
-                            <td>Backup database</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="70%">
-                                <div class="progress-bar bg-warning" data-width="70%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-1.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-2.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
-                            </td>
-                            <td>2018-01-29</td>
-                            <td><div class="badge badge-warning">In Progress</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              4
-                            </td>
-                            <td>Input data</td>
-                            <td class="align-middle">
-                              <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
-                                <div class="progress-bar bg-success" data-width="100%"></div>
-                              </div>
-                            </td>
-                            <td>
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-2.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-5.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-4.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
-                              <img alt="image" src="{{ asset ('stisla/dist/assets/img/avatar/avatar-1.png')}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
-                            </td>
-                            <td>2018-01-16</td>
-                            <td><div class="badge badge-success">Completed</div></td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                <div class="breadcrumb-item active">
+                    <a href="{{ route('karyawan.dashboard') }}">Dashboard</a>
                 </div>
-              </div>
+                <div class="breadcrumb-item">Perubahan Tarif</div>
             </div>
-          </div>
-        </section>
-      </div>
+        </div>
+
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    {{-- Cek apakah ada pesan sukses --}}
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- Cek apakah ada pesan error --}}
+                    @if (session('error'))
+                        <div class="alert alert-warning" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4>Data Perubahan Tarif</h4>
+                           
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th>IDPEL</th>
+                                            <th>Nama Pelanggan</th>
+                                            <th>Alamat</th>
+                                            <th>Tarif Semula</th>
+                                            <th>Tarif Menjadi</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data as $d)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $d->id_pel }}</td>
+                                                <td>{{ $d->nama }}</td>
+                                                <td>{{ $d->alamat }}</td>
+                                                <td>{{ $d->tarif_semula }}</td>
+                                                <td>{{ $d->tarif_menjadi }}</td>
+                                                <td>
+                                                    <div class="form-button-action">
+                                                        <a href="{{ route('karyawan.rubahtarif.show', $d->id_pel) }}" class="btn btn-link btn-info" data-toggle="tooltip" title="Lihat Detail">
+                                                            <i class="fa fa-eye text-white"></i>
+                                                        </a>
+
+                                                        <a href="{{ route('karyawan.rubahtarif.edit', ['id_pel' => $d->id_pel]) }}" class="btn btn-link btn-success" data-toggle="tooltip" title="Ubah Data">
+                                                            <i class="fa fa-edit text-white"></i>
+                                                        </a>
+
+                                                        <form action="{{ route('karyawan.rubahtarif.print', ['id_pel' => $d->id_pel]) }}" target="_blank" method="POST" class="d-inline">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-link btn-primary" data-toggle="tooltip" title="Cetak RubahTarif">
+                                                                <i class="fa fa-print text-white"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 @endsection
