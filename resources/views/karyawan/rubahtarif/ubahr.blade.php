@@ -149,8 +149,6 @@
     </div>
 @endforeach
 
-                
-
                 <!-- Tanggal -->
                 <div class="form-group">
                   <label for="tanggal_survey">Tanggal</label>
